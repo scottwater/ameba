@@ -18,6 +18,10 @@ group :test do
   gem 'webrat', '0.7.1'
 end
 
+group :development do
+    gem 'heroku', '1.10.13'
+end
+
 group :development, :test do
   gem 'awesome_print', '0.2.1'
   gem 'racksh', '0.9.8'
