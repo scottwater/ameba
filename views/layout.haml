@@ -31,7 +31,7 @@
             %ul
               %li= link_to("About", path_for(:about))
               %li= link_to("Archive", path_for(:archive))
-              %li= link_to("Atom", path_for(:atom))
+              %li= link_to("Feed", "#{@site.feed ? @site.feed : path_for(:atom)}")
               -if logged_in?
                 %li= link_to("New Post", path_for(:new))
                 %li= link_to("Sign Out", path_for(:logout))
