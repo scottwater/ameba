@@ -23,8 +23,8 @@ use Rack::Flash
 
 use Rack::Rewrite do
 
-    r301 %r{.*}, "http://#{ENV['SITE_URL']}$&", :if => Proc.new {|rack_env|
-        ENV['RACK_ENV'] == 'production' && rack_env['SERVER_NAME'] != ENV['SITE_URL']
+    r301 %r{.*}, "http://#{ENV['AMEBA_SITE_URL']}$&", :if => Proc.new {|rack_env|
+        ENV['RACK_ENV'] == 'production' && rack_env['SERVER_NAME'] != ENV['AMEBA_SITE_URL']
       }    
 
     r301 %r{^(.+)/$}, '$1'
