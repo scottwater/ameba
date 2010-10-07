@@ -38,7 +38,7 @@ The easiest way to set up a user locally is with racksh (installed via bundler).
     
 ## Deploying
 
-One you have your site themed/customized to your liking, there are a couple of things of environment variables you will want to set:
+Once you have your site themed/customized to your liking, there are a couple of things of environment variables you will want to set:
 
 * AMEBA\_SECRET\_KEY - Ameba uses Rack::Session::Cookie. For security (and sanity) you must set this value to use in the production environment. 
 * AMEBA\_TITLE - Your site's title
@@ -47,3 +47,10 @@ One you have your site themed/customized to your liking, there are a couple of t
 * AMEBA\_SITE\_URL - set the url you want to use for your site. All others (such as Heroku's subdomain) will be redirected
 
 For MongoDB, Ameba is setup by default to look for Heroku's MONGOHQ\_URL variable. 
+
+## Radom Stuff
+
+* If you using RVM, all your gems will end up in a gemset called Ameba
+* If you import content from another site, set the :slug property. Ameba will honor it instead of generating it's own.
+* Run _rake_ locally to ensure everything is properly setup. 
+* New Relic is pre-wired up.
