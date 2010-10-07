@@ -84,6 +84,13 @@ describe "Main Pages" do
 	  last_request.path.should eql(path_for(:post, :slug => p.slug))
 	end
 
+  it 'should find the 404 for a missing link' do
+    visit '/asdfasdfasdfa'
+    response_body.should contain "OMG!"
+    
+    visit '/abc-def-ghi' 
+    response_body.should contain "OMG!"
+  end
 	
   describe "post paging and archives" do
 

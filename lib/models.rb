@@ -99,6 +99,7 @@ class Post
   
   scope :sorted, sort(:created_at.desc)
   scope :filtered, query.ignore(:rawbody)
+  scope :light, query.only(:title, :slug, :created_at, :views)
   
   def self.recent(page_size=10, page=0)
    page = page.to_i
@@ -107,8 +108,12 @@ class Post
    q.all
   end
   
+  def self.popular(page_size=10)
+    light.sort(:views.desc).limit(page_size).all
+  end
+  
   def self.archive()
-    sorted.query.only(:title, :slug, :created_at).all
+    sorted.light.all
   end
   
   def next()

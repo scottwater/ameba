@@ -1,0 +1,15 @@
+%article
+  %header
+    %h1 OMG! You broke my site!
+
+  %section.content  
+    %p
+      Sorry, the link you requested could not be found. Chances are it was a bad link or I realized it contained nothing worth saving and deleted it (likely the latter). 
+    %p While it won't bring back the missing link, listed below are the top #{@posts.size} posts on the site. I am sure you will find one of these to be much more interesting anyway. 
+
+  - @posts.each do |post|
+    %ul.archive
+      %li
+        %time{:datetime => post.created_at, :pubdate => true}
+          = kronic(post.created_at)
+        = link_to(h(post.title), path_for(:post, :slug => post.slug))

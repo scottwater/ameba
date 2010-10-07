@@ -104,7 +104,7 @@ get %r{/(.+)} do |slug|
     set_title @post.title
     haml :post
   else
-    redirect path_for(:home)
+    404
   end
 end
 
@@ -112,6 +112,12 @@ get '/' do
   set_title
   @posts = Post.recent(10, params[:page] || 1)
   haml :index
+end
+
+not_found do
+  set_title "You broke my site!"
+  @posts = Post.popular
+  haml :'404'
 end
 
 def set_title (text=nil)
