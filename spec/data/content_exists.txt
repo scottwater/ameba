@@ -1,0 +1,7 @@
+---
+title: Simple Post
+tags: [one, two]
+content: should cause a failure
+---
+
+This is a simple post body.

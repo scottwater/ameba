@@ -1,0 +1,308 @@
+/* 
+  style.css contains a reset, font normalization and some base styles.
+  
+  credit is left where credit is due.
+  additionally, much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, figure, footer, header, 
+hgroup, menu, nav, section, menu,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, figure, footer, header, 
+hgroup, nav, section { display:block; }
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted #000; cursor:help; }
+
+/* tables still need cellspacing="0" in the markup */
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+/* END RESET CSS */
+
+/* normalize monospace sizing 
+ * en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome
+ */
+
+ 
+
+
+/* 
+ * minimal base styles 
+ */
+
+
+/* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */ 
+body, select, input, textarea { color: #444; }
+
+/* Headers (h1,h2,etc) have no default font-size or margin,
+   you'll want to define those yourself. */ 
+ 
+/* www.aestheticallyloyal.com/public/optimize-legibility/ */ 
+h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
+
+html { 
+  /* maxvoltar.com/archive/-webkit-font-smoothing */ 
+  -webkit-font-smoothing: antialiased; 
+  /* always force a scrollbar in non-IE */ 
+  overflow-y: scroll;
+}
+
+ 
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+
+ul { margin-left: 30px; }
+ol { margin-left: 30px; list-style-type: decimal; }
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+/* align checkboxes, radios, text inputs with their label
+   by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+
+/* These selection declarations have to be separate.
+   No text-shadow: twitter.com/miketaylr/status/12228805301 
+   Also: hot pink. */
+::-moz-selection{ background: #DEBE8E; color:#fff; text-shadow: none; }
+::selection { background:#DEBE8E; color:#fff; text-shadow: none; } 
+
+/*  j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #FF5E99; } 
+
+/* CUSTOM CSS STARTS HERE */
+
+body
+{
+    font:1em/1.625em "lucida grande","lucida sans unicode", sans-serif;
+}
+
+.siteheader
+{
+    background-color: #607890;
+    border-top: 2px solid #1F3F5E;
+    border-bottom: 4px solid #1F3F5E;
+}
+
+.container, .siteheader hgroup
+{
+    min-width: 600px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.container section.wrapper
+{
+    width: 100%;
+    display:inline;
+    float:left;
+    padding-top: 20px;
+    min-height:400px;
+}
+
+section.container footer
+{
+    text-align:center;
+    clear:both;
+}
+
+.container section.sidebar
+{
+    float: left;
+    width: 25%;
+}
+
+.container section.main
+{
+    width:75%;
+    float:left;
+    min-height:400px;
+}
+
+.container section.main article
+{
+    margin-bottom: 10px;
+    margin-right: 25px;
+}
+
+header a
+{
+    text-decoration: none;
+}
+
+header.siteheader 
+{
+    height: 80px;
+    width:100%;
+    margin-bottom: 10px
+}
+
+header.siteheader h1
+{
+    padding-top:15px;
+    font-size: 2.0em;
+}
+
+header.siteheader h1 a
+{
+    color:white;
+}
+
+header.siteheader h2
+{
+    font-size: 1.2em;
+    margin-top:10px;
+}
+
+.container section.main article header h1
+{
+    font-size: 1.8em;
+}
+
+.container section.main article .content p
+{
+    margin: 15px 0;
+}
+
+.container section.main article .content h1 {font-size: 1.3em;}
+.container section.main article .content h2 {font-size: 1.25em;}
+.container section.main article .content h3 {font-size: 1.2em;}
+.container section.main article .content h4 {font-size: 1.15em;}
+.container section.main article .content h5 {font-size: 1.1em;}
+.container section.main article .content h6 {font-size: 1.05em;}
+
+blockquote {
+    border-left: 1px solid #607890;
+    color: #555555;
+    font-size: 1.00em;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 30px;
+    font-style: italic;
+}
+
+p.footnote
+{
+    font-style: italic;
+}
+
+pre
+{
+    line-height: 1.6em;
+    font-size: 0.8em;        
+}
+
+code 
+{
+    font-family: monospace, sans-serif; 
+}
+
+.main article footer
+{
+    border-top: 1px solid #F5F5F5;
+    font-size: 0.8em;
+    color: #CCC;
+    text-align: left;
+}
+
+.main ul.archive
+{
+    width: 600px;
+    margin:0;
+}
+
+.main ul.archive li time
+{
+    float: right;
+    font-size: 0.8em;
+}
+
+.main ul.archive li
+{
+    list-style-type: none;
+    border-bottom: 1px solid #F5F5F5;
+    margin-bottom: 5px;
+}
+
+.main ul.archive li a
+{
+    text-decoration: none;
+}
+
+.sidebar nav ul {margin: 0;}
+.sidebar nav ul li a{text-decoration:none; font-size:1.1em;}
+
+#errors ul, #notification {color:red;}
+
+#post #title {font-size:16px; width:90%; line-height:20px;}
+
+#post textarea.textarea { font-size: 16px; line-height: 20px; max-height: 500px; height: 250px; width:90%; }
+
+#user #email, #user #password {font-size:16px; width:50%; line-height:20px;}
+
+input[type="text"]:focus, textarea:focus, input:focus {
+    background-color:#FFFFCC;
+    color:#000000;
+}
+
+input[type="submit"]
+{
+    width:100px;
+    font-size:16px;
+	padding: 10px;
+}
+
+label {display:block;}

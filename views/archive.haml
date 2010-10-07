@@ -1,0 +1,13 @@
+%article
+  %header
+    %h1 Archive
+
+- @posts.each do |post|
+  %ul.archive
+    %li
+      %time{:datetime => post.created_at, :pubdate => true}
+        = kronic(post.created_at)
+      = link_to(h(post.title), path_for(:post, :slug => post.slug))
+      
+        
+  

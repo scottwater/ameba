@@ -1,0 +1,9 @@
+This is some text about a post
+
+BASHCODE
+
+This is the middle
+
+RUBYCODE
+
+The end!

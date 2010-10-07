@@ -1,0 +1,6 @@
+---
+title: Simple Post
+tags: one, two
+---
+
+This is a simple post body.

@@ -1,0 +1,19 @@
+This is some text about a post
+
+{% highlight bash %}
+
+gem install httpclient
+gem install rubyntlm
+
+{% endhighlight %}
+
+This is the middle
+
+{% highlight ruby %}
+
+gem install httpclient
+gem install rubyntlm
+
+{% endhighlight %}
+
+The end!

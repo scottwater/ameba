@@ -1,0 +1,51 @@
+--- !ruby/object:EphemeralResponse::Fixture 
+created_at: 2010-09-28 11:23:00.559059 -04:00
+file_name: pygments.appspot.com_POST_763cd05.yml
+request: !ruby/object:Net::HTTP::Post 
+  body: code=gem%20install%20httpclient%0agem%20install%20rubyntlm&lang=ruby
+  body_stream: 
+  header: 
+    accept: 
+    - "*/*"
+    content-type: 
+    - application/x-www-form-urlencoded
+  method: POST
+  path: /
+  request_has_body: true
+  response_has_body: true
+response: !ruby/object:Net::HTTPOK 
+  body: |
+    <div class="highlight"><pre><span class="n">gem</span> <span class="n">install</span> <span class="n">httpclient</span>
+    <span class="n">gem</span> <span class="n">install</span> <span class="n">rubyntlm</span>
+    </pre></div>
+
+  body_exist: true
+  code: "200"
+  header: 
+    expires: 
+    - Fri, 01 Jan 1990 00:00:00 GMT
+    content-type: 
+    - text/plain
+    server: 
+    - Google Frontend
+    date: 
+    - Tue, 28 Sep 2010 15:23:02 GMT
+    cache-control: 
+    - no-cache
+    transfer-encoding: 
+    - chunked
+  http_version: "1.1"
+  message: OK
+  read: true
+  socket: 
+uri: !ruby/object:URI::HTTP 
+  fragment: 
+  host: pygments.appspot.com
+  opaque: 
+  password: 
+  path: /
+  port: 80
+  query: 
+  registry: 
+  scheme: http
+  user: 

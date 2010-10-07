@@ -1,0 +1,23 @@
+---
+layout: post
+title: OData
+date: 05/13/2010 11:31 AM
+permalink: /odata
+tags: [odata, microsoft]
+---
+
+Yesterday, I made the trip into NYC to added the "OData Roadshow":http://www.odata.org/roadshow. 
+
+For those who have not looked into "OData":http://www.odata.org/: 
+
+bq. The Open Data Protocol (OData) is a Web protocol for querying and updating data that provides a way to unlock your data and free it from silos that exist in applications today. OData does this by applying and building upon Web technologies such as HTTP, Atom Publishing Protocol (AtomPub) and JSON to provide access to information from a variety of applications, services, and stores.
+
+* I personally do not feel it is truly RESTful, but I am willing to give up some of the tenants of REST in order to gain consistency. 
+* While the protocol specification states it is read and write, I would be 99% of implementations will be read only. In fact, in the 5 hours of content covered by Microsoft, there were zero examples of updates. 
+* If you are using a Linq to "Your Data Access" technology adding OData at a high level will be simple. If you are not using one, I expect this as quite a bit of work. 
+
+Overall, I really like the concept. Simple conventions for querying and representing data. IMO, this is the kind of stuff Microsoft should be doing more of (instead of silverlight/windows phone/etc). Couple with their data market (Dallas). I would expect to see much more data becoming available via OData.
+
+On a side note, if the OData Roadshow is coming through your town, I would highly recommend checking it out. 
+
+Finally, for a walk through on setting up your own OData service, check out Hanselman's "OData For StackOverflow":http://www.hanselman.com/blog/CreatingAnODataAPIForStackOverflowIncludingXMLAndJSONIn30Minutes.aspx post.

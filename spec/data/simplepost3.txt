@@ -1,0 +1,7 @@
+---
+title: Simple Post
+tags: [one, two]
+slug: Changed
+---
+
+This is a simple post body.

@@ -1,0 +1,11 @@
+Hello Youtube video <a href="http://www.youtube.com/watch?v=1p3vcRhsYGo">Go here</a>. 
+
+http://www.youtube.com/watch?v=WPkDFPmRSqU&feature=topvideos
+
+Flickr
+
+http://www.flickr.com/photos/stevenray/4825118544/in/contacts/
+
+Don't forget a plain link to http://scottw.com or maybe even http://scottw.me.
+
+Finally, we should ignore <a href="http://scottw.com/about">About Me</a>

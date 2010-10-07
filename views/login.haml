@@ -1,0 +1,14 @@
+%h1 Login Buddy
+
+#notification= flash[:notice]
+
+%form{:action=> "#{path_for :login}",  :method=>"post", :id=>"user"}
+  %fieldset
+    %label{:for=>'email'} Email:
+    %input.text{:name => "email", :value => params[:email], :id => "email", :tab => 0, :placeholder => "enter your email", :type => 'email', :autofocus => true}
+
+    %label{:for=>'password'} Password:
+    %input.text{:name => "password", :id => "password", :tab => 0, :placeholder => "enter your password", :type => "password"}
+
+  %fieldset
+    %input.submit{:type => "submit", :id => "user-button", :value => 'Log In', :tab => 2}

@@ -1,0 +1,21 @@
+!!! XML
+%feed{:xmlns => "http://www.w3.org/2005/atom"}
+  %title=@site.title
+  %subtitle=@site.subtitle
+  %link{:href => "#{url_for :atom}", :ref => "self"}
+  %link{:href => "#{url_for :home}"}
+  
+  - if @posts.size > 0
+    %updated=@posts.max{|a,b| a.updated_at <=> b.updated_at}.updated_at
+  
+  %id=url_for :home
+
+  - @posts.each do |post|
+    %entry
+      %title= h(post.title)
+      %content{:type => 'html'}= h(post.body)
+      %updated= post.updated_at
+      %link{:href =>"#{url_for :post, :slug => post.slug}"}
+      %author
+        %name=post.user.name
+        %email=post.user.email

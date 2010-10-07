@@ -1,0 +1,5 @@
+Hello Youtube video <a href="http://www.youtube.com/watch?v=1p3vcRhsYGo">Go here</a>. 
+
+Don't forget a plain link to http://scottw.com or maybe even http://scottw.me .
+
+Finally, we should ignore <a href="http://scottw.com/about">About Me</a>

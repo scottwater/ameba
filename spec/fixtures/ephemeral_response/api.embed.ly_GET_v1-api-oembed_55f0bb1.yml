@@ -1,0 +1,45 @@
+--- !ruby/object:EphemeralResponse::Fixture 
+created_at: 2010-09-28 11:20:50.484053 -04:00
+file_name: api.embed.ly_GET_v1-api-oembed_55f0bb1.yml
+request: !ruby/object:Net::HTTP::Get 
+  body: 
+  body_stream: 
+  header: 
+    accept: 
+    - "*/*"
+  method: GET
+  path: /v1/api/oembed?validate=false&url=http://www.youtube.com/watch?v=WPkDFPmRSqU&feature=topvideos
+  request_has_body: false
+  response_has_body: true
+response: !ruby/object:Net::HTTPOK 
+  body: "{\"provider_url\": \"http://www.youtube.com/\", \"description\": \"The intro to the 2010 Emmy awards featuring the cast of FOX's \\\"Glee\\\"\\r\\n\\r\\n\\u00a9 2010 Academy of Television Arts & Sciences. All rights reserved.\", \"title\": \"\\\"Glee\\\" in the 2010 Emmy Opening Skit\", \"url\": \"http://www.youtube.com/watch?v=WPkDFPmRSqU\", \"type\": \"video\", \"html\": \"<object width=\\\"640\\\" height=\\\"385\\\"><param name=\\\"movie\\\" value=\\\"http://www.youtube.com/v/WPkDFPmRSqU?fs=1\\\"><param name=\\\"allowFullScreen\\\" value=\\\"true\\\"><param name=\\\"allowscriptaccess\\\" value=\\\"always\\\"><embed src=\\\"http://www.youtube.com/v/WPkDFPmRSqU?fs=1\\\" type=\\\"application/x-shockwave-flash\\\" width=\\\"640\\\" height=\\\"385\\\" allowscriptaccess=\\\"always\\\" allowfullscreen=\\\"true\\\"></embed></object>\", \"author_name\": \"TheGleekChannel\", \"height\": 385, \"width\": 640, \"version\": \"1.0\", \"thumbnail_width\": 120, \"provider_name\": \"YouTube\", \"thumbnail_url\": \"http://i.ytimg.com/vi/WPkDFPmRSqU/default.jpg\", \"thumbnail_height\": 90, \"author_url\": \"http://www.youtube.com/user/TheGleekChannel\"}"
+  body_exist: true
+  code: "200"
+  header: 
+    etag: 
+    - "\"febec5050f20bf000882a2a1787af4263fe72543\""
+    connection: 
+    - keep-alive
+    content-type: 
+    - application/json
+    server: 
+    - TornadoServer/0.1
+    date: 
+    - Tue, 28 Sep 2010 15:21:13 GMT
+    content-length: 
+    - "1033"
+  http_version: "1.1"
+  message: OK
+  read: true
+  socket: 
+uri: !ruby/object:URI::HTTP 
+  fragment: 
+  host: api.embed.ly
+  opaque: 
+  password: 
+  path: /v1/api/oembed
+  port: 80
+  query: validate=false&url=http://www.youtube.com/watch?v=WPkDFPmRSqU&feature=topvideos
+  registry: 
+  scheme: http
+  user: 
