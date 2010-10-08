@@ -54,3 +54,4 @@ For MongoDB, Ameba is setup by default to look for Heroku's MONGOHQ\_URL variabl
 * If you import content from another site, set the :slug property. Ameba will honor it instead of generating it's own.
 * Run _rake_ locally to ensure everything is properly setup. 
 * New Relic is pre-wired up.
+* There is no login link. To login, you need to navigate to /login.
