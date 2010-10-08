@@ -1,12 +1,12 @@
 !!! XML
-%feed{:xmlns => "http://www.w3.org/2005/atom"}
+%feed{:xmlns => "http://www.w3.org/2005/Atom"}
   %title=@site.title
   %subtitle=@site.subtitle
-  %link{:href => "#{url_for :atom}", :ref => "self"}
+  %link{:href => "#{url_for :atom}", :rel => "self"}
   %link{:href => "#{url_for :home}"}
   
   - if @posts.size > 0
-    %updated=@posts.max{|a,b| a.updated_at <=> b.updated_at}.updated_at
+    %updated=@posts.max{|a,b| a.updated_at <=> b.updated_at}.updated_at.xmlschema
   
   %id=url_for :home
 
@@ -14,8 +14,9 @@
     %entry
       %title= h(post.title)
       %content{:type => 'html'}= h(post.body)
-      %updated= post.updated_at
+      %updated= post.updated_at.xmlschema
       %link{:href =>"#{url_for :post, :slug => post.slug}"}
+      %id= "#{url_for :post, :slug => post.slug}"
       %author
         %name=post.user.name
         %email=post.user.email
