@@ -1,7 +1,0 @@
-require 'ap'
-
-Object.class_eval <<-EOE
-  def irb_toggle
-    irb_context.echo ? irb_context.echo = false : irb_context.echo = true
-  end    
-EOE
