@@ -1,5 +1,6 @@
 source :gemcutter
 
+gem 'activesupport', '3.0.0'
 gem 'mongo', '1.0.9'
 gem 'bson', '1.0.9'
 gem 'bson_ext', '1.0.9'

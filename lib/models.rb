@@ -7,23 +7,15 @@ autoload :RedCloth, 'redcloth'
 #in more than one location. Sidebar and About will simply be set in
 #the views
 class Site
-  
-   attr_reader :title
-   attr_reader :subtitle
-   attr_reader :feed
 
-  
-  def initialize
-    set_default(:title, "An Ameba Blog")
-    set_default(:subtitle, "You should change this value")
-    set_default(:feed, nil)
-  end
-  
-  private 
-  
-  def set_default(name, val)
-    instance_variable_set("@#{name}", ENV["AMEBA_#{name.to_s.upcase}"] || val)
-  end
+   #semi borrowed from active_support/core_ext/module_attr_accessor_with_default
+   def self.attr_env_reader(sym, opts={})
+     define_method(sym, Proc.new{ENV["#{opts[:namespace]}#{sym.to_s.upcase}"] || opts[:default] })
+   end
+   
+   attr_env_reader :title, :namespace => 'AMEBA_', :default => 'An Ameba Blog'
+   attr_env_reader :subtitle, :namespace => 'AMEBA_', :default =>'You should change this value'
+   attr_env_reader :feed, :namespace => 'AMEBA_'
   
 end
 

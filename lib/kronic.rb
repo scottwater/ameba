@@ -1,4 +1,5 @@
 require 'date'
+require 'active_support/core_ext/string/conversions'
 
 #Slightly modifed version of http://github.com/xaviershay/kronic. Sent pull requests for changes.
 
