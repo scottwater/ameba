@@ -12,6 +12,10 @@ gem 'i18n', '0.4.1'
 gem 'rack-flash', '0.1.1'
 gem 'rack-rewrite', '1.0.2'
 
+group :development do
+    gem 'rack-environmental', '1.2.0'
+end
+
 group :test do
   gem 'mocha', '~> 0.9.8'
   gem "rspec", '1.3.0', :require => "spec"
