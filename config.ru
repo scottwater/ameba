@@ -2,20 +2,13 @@ require 'bundler'
 Bundler.setup
 require 'rack-flash'
 require 'rack-rewrite'
-require 'rack-environmental'
+# require 'rack-environmental'
 require 'ameba'
 
 configure :production do
     ENV['APP_ROOT'] ||= File.dirname(__FILE__)
     $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
     require 'newrelic_rpm'
-end
-
-configure :development do 
-  use Rack::Environmental,
-    :staging =>     { :url => /^staging.+$/   },
-    :test =>        { :url => /^test.+$/      },
-    :development => { :url => /^localhost.+$/, :style => :badge }
 end
 
 DEFAULT_SECRET_KEY = 'not_yet_set' unless defined?(DEFAULT_SECRET_KEY)
