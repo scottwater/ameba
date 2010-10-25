@@ -16,5 +16,5 @@ group :test do
   gem 'mocha', '~> 0.9.8'
   gem "rspec", '1.3.0', :require => "spec"
   gem 'rack-test', '0.5.6'
-  gem 'webrat', '0.7.1'
+  gem 'webrat', '0.7.2'
 end
