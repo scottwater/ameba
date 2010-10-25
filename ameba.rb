@@ -72,10 +72,10 @@ post '/login' do
     redirect_to = session[:return_to] || path_for(:home)
     session[:return_to] = nil
     redirect redirect_to
+  else
+    flash[:notice] = "Invalid email/password combination"
+    haml :login
   end
-  
-  flash[:notice] = "Invalid email/password combination"
-  haml :login
 end
 
 get '/atom' do

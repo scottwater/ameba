@@ -9,10 +9,12 @@ describe "Authorized Pages" do
 	
 	def visit_and_login(path)
     visit path
+    follow_redirect!
 		last_request.path.should eql(path_for :login)
     fill_in 'email', :with => 'scottwater@gmail.com'
 		fill_in 'password', :with => '1234'
 		click_button 'user-button'
+		follow_redirect!		
 		last_request.path.should eql(path)
   end
 	
@@ -48,7 +50,7 @@ describe "Authorized Pages" do
 		fill_in 'post[title]', :with => 'Hello World'
 		fill_in 'post[rawbody]', :with => 'I am the post body'
 		click_button 'post-button'
-		
+		follow_redirect!		
 		last_request.path.should eql(path_for(:post, :slug => 'hello-world'))
 		response_body.should contain "I am the post body"
 	end
@@ -81,6 +83,7 @@ describe "Authorized Pages" do
   		fill_in 'post[title]', :with => 'Title Changed'
   		fill_in 'post[rawbody]', :with => 'Body Changed'
   	  click_button 'post-button'
+		  follow_redirect!  	  
   	  last_request.path.should eql(path_for(:post, :slug => 'hello-world')) #also verifies changing titles does not change the slug
   	  response_body.should contain "Title Changed"
   	  response_body.should contain "Body Changed"

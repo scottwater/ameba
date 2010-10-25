@@ -12,6 +12,7 @@ describe "Login and Logout" do
     fill_in 'email', :with => 'scottwater@gmail.com'
 		fill_in 'password', :with => '1234'
 		click_button 'user-button'
+		follow_redirect!
 		last_request.path.should eql(path_for(:home))
     
   end
@@ -20,40 +21,44 @@ describe "Login and Logout" do
   it "should allow me to login and then logout" do
     visit path_for(:login)
     fill_in 'email', :with => 'scottwater@gmail.com'
-		fill_in 'password', :with => '1234'
-		click_button 'user-button'
-		last_request.path.should eql(path_for(:home))
-		visit path_for(:logout)
-		visit path_for(:new)
-		last_request.path.should eql(path_for(:login))
+    fill_in 'password', :with => '1234'
+    click_button 'user-button'
+    follow_redirect!
+    last_request.path.should eql(path_for(:home))
+    visit path_for(:logout)
+    visit path_for(:new)
+		follow_redirect!    
+    last_request.path.should eql(path_for(:login))
     
   end
-
+  
   it 'should say my credentials are not valid' do
     visit path_for(:login)
     fill_in 'email', :with => 'not_scottwater@gmail.com'
-	  fill_in 'password', :with => '1234'
-		click_button 'user-button'
+    fill_in 'password', :with => '1234'
+    click_button 'user-button'
     last_response.should contain "Invalid email/password combination"
     
     fill_in 'email', :with => 'scottwater@gmail.com'
-	  fill_in 'password', :with => '7890'
-		click_button 'user-button'
+    fill_in 'password', :with => '7890'
+    click_button 'user-button'
     last_response.should contain "Invalid email/password combination"
     
     visit path_for(:login)
-		click_button 'user-button'
+    click_button 'user-button'
     last_response.should contain "Invalid email/password combination"    
     
   end
   
   it 'should redirect me to the login page when I request /new' do
     visit path_for(:new)
+		follow_redirect!    
     last_request.path.should eql(path_for(:login))
   end
-
+  
   it 'should redirect me to the login page when I request /edit/some-page' do
     visit path_for(:edit, :slug => 'some-page')
+		follow_redirect!    
     last_request.path.should eql(path_for(:login))
   end
   
