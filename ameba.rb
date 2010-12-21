@@ -20,41 +20,36 @@ before do
 end
 
 get '/new' do
-  login_required!
-  set_title "Write Something!"
-  @post = Post.new
-  haml :editor
+  login_required!    
+  editor_form Post.new
 end
 
 post '/new' do
   login_required!
-  @post = Post.new params[:post]
-  @post.user = current_user
-  if @post.save
-    redirect path_for(:post, :slug => @post.slug)
+  post = Post.new params[:post]
+  post.user = current_user
+  if post.save
+    redirect path_for(:post, :slug => post.slug)
   else
-    set_title 'Write Something!'
-    haml :editor
+    editor_form post
   end
 end
 
 get %r{/edit/(.+)} do |slug|
-  login_required!
-  @post = Post.find_by_slug!(slug)
-  set_title @post.title
-  haml :editor
+  login_required!    
+  post = Post.find_by_slug!(slug)
+  editor_form post
 end
 
 post %r{/edit/(.+)} do |slug|
   login_required!  
-  @post = Post.find_by_slug!(slug)
-  @post.title = params[:post][:title]
-  @post.rawbody = params[:post][:rawbody]
-  if @post.save
-    redirect path_for(:post, :slug => @post.slug)
+  post = Post.find_by_slug!(slug)
+  post.title = params[:post][:title]
+  post.rawbody = params[:post][:rawbody]
+  if post.save
+    redirect path_for(:post, :slug => post.slug)
   else
-    set_title @post.title
-    haml :editor
+    editor_form post
   end
 end
 
@@ -122,4 +117,12 @@ end
 
 def set_title (text=nil)
   @title = text ?  "#{text} : #{@site.title}" : @site.title
+end
+
+private
+
+def editor_form(post)
+  @post = post
+  set_title post.title.present? ? post.title : 'Write Something'
+  haml :editor  
 end
