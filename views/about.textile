@@ -1,0 +1,34 @@
+<article>
+<header>
+h1. About Scott Watermasysk
+</header>
+<section class="content">
+
+Hello! Thanks for stopping by.
+
+This is the personal site of Scott Watermasysk.
+
+h2. Who is Scott?
+
+# Family man. I am married to a wonderful woman who has blessed me with a great daughter.
+# Employee. I am the Vice President of Architecture at "Telligent":http://telligent.com. 
+# Sports enthusiast.
+# Blogger. See this site. :)
+# .NET Developer/Architect
+# Aspiring Rubyist
+# "Code":http://github.com/scottwater ("this site":http://github.com/scottwater/ameba and more)
+# Twitter'er "@ScottW":http://twitter.com/scottw
+# "Picture poster":http://crinket.com
+
+As for the rest of the bio: I currently live in NJ and I am a graduate of Rutgers University. I have held a variety of positions over the years, but software is definitely what I was born to do.
+
+I am increasingly interested in the following topics: 
+
+# Giving back/doing better
+# Minimalism
+# Learn Startups
+# Ruby
+# Web standards/HTML5
+
+</section>
+</article>

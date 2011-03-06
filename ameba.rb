@@ -82,7 +82,7 @@ end
 
 get '/about' do
   set_title "About"
-  haml :about
+  textile :about, :layout_engine => :haml
 end
 
 get '/archive' do
