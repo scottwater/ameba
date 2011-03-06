@@ -34,8 +34,8 @@ describe "Authorized Pages" do
 
 	it "should verify the editor fields are properly poulated" do
 		visit_and_login path_for(:new)
-		field_labeled("Title:").value.should be_nil #todo: why is this nil and not empty
-		field_labeled("Body:").value.should be_empty #todo: why is this empty and not nil
+		field_labeled("Title:").value.should be_empty 
+		field_labeled("Body:").value.should be_empty 
 	end
 	
 	it "should verify the editor fields are properly poulated" do

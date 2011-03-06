@@ -33,6 +33,10 @@ module Sinatra
 	    full_path_len = request.fullpath.size * -1
 	    request.url[0...full_path_len]
 	  end
+
+		def url_for_feed(feed_url)
+			feed_url ? feed_url : url_for(:atom)
+		end
 	  
 	  def self.registered(app)
 			app.helpers Routes

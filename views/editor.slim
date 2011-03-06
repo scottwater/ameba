@@ -1,0 +1,30 @@
+article
+  header
+    h1 Feel inspired & write something
+  .content
+  - if !@post.nil? && @post.errors.size > 0
+    #errors
+      strong You screwed something up!
+      ul
+        - @post.errors.full_messages.each do |message|
+          li=message
+
+form action=editor_action_link(@post) method="post" id="post"
+  fieldset
+    label for='title' Title:
+    input.text type="text" name="post[title]" value=@post.title id="title" tab="0" placeholder="enter a title" autofocus=true
+
+    label for='rawbody' Body:
+    textarea.textarea name="post[rawbody]" id="rawbody" tab="1" placeholder="write something already"
+     =@post.rawbody
+
+  fieldset
+    input.submit type="submit" id="post-button" value=editor_button_text(@post) tab="2"
+    
+script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+script type="text/javascript" src="http://cachedcommons.org/cache/jquery-elastic-textarea/1.6.4/javascripts/jquery-elastic-textarea-min.js"
+
+javascript:
+  | $(document).ready(function() {
+    | $('textarea').elastic();
+  | });

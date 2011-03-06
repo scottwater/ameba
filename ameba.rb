@@ -5,8 +5,7 @@ require 'authorization'
 require 'models'
 require 'routes'
 require 'uihelpers'
-
-set :haml, {:format => :html5, :attr_wrapper => '"'}
+require 'slim'
 
 helpers do
   include Sinatra::Authorization
@@ -58,8 +57,9 @@ get '/logout' do
 end
 
 get '/login' do
+	set_title = 'Log In'
   @user = User.new
-  haml :login
+  slim :login
 end
 
 post '/login' do
@@ -69,27 +69,28 @@ post '/login' do
     redirect redirect_to
   else
     flash[:notice] = "Invalid email/password combination"
-    haml :login
+    slim :login
   end
 end
 
 get '/atom' do
-  set :haml, {:format => :xhtml}
+  #set :haml, {:format => :xhtml}
   content_type "application/xml"
   @posts = Post.recent
-  haml :atom, :layout => false
+	set :slim, {:format => :xhtml}
+  slim :atom, :layout => false
 end
 
 get '/about' do
   set_title "About"
-  textile :about, :layout_engine => :haml
+  textile :about, :layout_engine => :slim
 end
 
 get '/archive' do
   set_title "Archive"
   @posts = Post.archive
   @robots = "noindex,follow"
-  haml :archive
+  slim :archive
 end
 
 get %r{/(.+)} do |slug|
@@ -97,7 +98,7 @@ get %r{/(.+)} do |slug|
   if @post
     @post.increment_views unless logged_in?
     set_title @post.title
-    haml :post
+    slim :post
   else
     404
   end
@@ -106,13 +107,13 @@ end
 get '/' do
   set_title
   @posts = Post.recent(10, params[:page] || 1)
-  haml :index
+  slim :index
 end
 
 not_found do
   set_title "You broke my site!"
   @posts = Post.popular
-  haml :'404'
+  slim :'404'
 end
 
 def set_title (text=nil)
@@ -124,5 +125,5 @@ private
 def editor_form(post)
   @post = post
   set_title post.title.present? ? post.title : 'Write Something'
-  haml :editor  
+  slim :editor  
 end

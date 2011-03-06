@@ -1,0 +1,22 @@
+! doctype xml
+feed xmlns="http://www.w3.org/2005/Atom"
+  title=@site.title
+  subtitle=@site.subtitle
+  link href=url_for(:atom) rel="self"
+  link href=url_for(:home)
+  
+  - if @posts.size > 0
+    updated=last_updated(@posts).updated_at.xmlschema
+  
+  id=url_for(:home)
+
+  - @posts.each do |post|
+    entry
+      title= h(post.title)
+      content type='html'
+      updated= post.updated_at.xmlschema
+      link href=url_for(:post, :slug=> post.slug)
+      id=url_for(:post, :slug => post.slug)
+      author
+        name=post.user.name
+        email=post.user.email
