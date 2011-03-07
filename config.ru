@@ -2,7 +2,10 @@ require 'bundler'
 Bundler.setup
 require 'rack-flash'
 require 'rack-rewrite'
-require './ameba'
+
+$: << '.'
+
+require 'ameba'
 
 configure :production do
     ENV['APP_ROOT'] ||= File.dirname(__FILE__)
