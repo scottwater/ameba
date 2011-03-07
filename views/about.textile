@@ -10,25 +10,26 @@ This is the personal site of Scott Watermasysk.
 
 h2. Who is Scott?
 
-# Family man. I am married to a wonderful woman who has blessed me with a great daughter.
-# Employee. I am the Vice President of Architecture at "Telligent":http://telligent.com. 
-# Sports enthusiast.
-# Blogger. See this site. :)
-# .NET Developer/Architect
-# Aspiring Rubyist
-# "Code":http://github.com/scottwater ("this site":http://github.com/scottwater/ameba and more)
+First and foremost, I am a family man. I am married to an extraordinary woman and father of a wonderful daughter. I currently live in NJ and I am a graduate of Rutgers University. I have held a variety of positions over the years, but software is definitely what I was born to do.
+
+In February 2011 I decided it was time to make a bigger mark on the world and left a comfortable job to start building my own empire of awesomeness. 
+
+If you want to know more about my career, please see my "LinkedIn profile":http://www.linkedin.com/in/scottwater
+
+On technology...I spent 10+ years building lots of stuff on .NET. For many people, this is still a viable platform, but for me, it no longer fits and it was time to move on. I am now spending most of my development time writing Ruby code (rails and sinatra), but time will ultimately tell. For now I find it to be a breath of fresh air and I really enjoy it. 
+
+On business...I much prefer the idea of selling something vs. buying a lottery ticket and trying to build the next big eye ball collector. There are so many real problems out there which need solving and plenty of people who are willing to pay to see problems go away. 
+
+On life...I like things simple. I am a minimalist at heart, but still need to work on just saying no to unnecessary crap. My two biggest vices are great craft beer and new shiny things from Apple. I am pretty sure these are incurable and I am OK with that. 
+
+Want more? Have a question? 
+
+# Email me at "ScottWater@gmail.com":mailto:scottwater@gmail.com
 # Twitter'er "@ScottW":http://twitter.com/scottw
+# "Github":http://github.com/scottwater
 # "Picture poster":http://crinket.com
 
-As for the rest of the bio: I currently live in NJ and I am a graduate of Rutgers University. I have held a variety of positions over the years, but software is definitely what I was born to do.
-
-I am increasingly interested in the following topics: 
-
-# Giving back/doing better
-# Minimalism
-# Learn Startups
-# Ruby
-# Web standards/HTML5
+Want this site's code? See the "Ameba repository":http://github.com/scottwater/ameba
 
 </section>
 </article>
