@@ -51,6 +51,18 @@ describe "Feed Settings" do
     response_body.should have_selector("link[href='http://feeds.simpable.com/simpable']")
   end
   
+	it 'should find the post content in the feed' do 
+		User.destroy_all
+		Post.destroy_all
+		
+		Post.create(:rawbody => 'A new post', :title => 'Hello World', :user => a_user)
+		visit '/atom'
+		#These are some crappy tests. Need to figure out how to properly test
+		#xml in my views. For now, these should stop me from doing a bonehead deploy
+		#and break my feed. :(
+		response_body.should contain "A new post"
+		response_body.should contain "Hello World"
+	end
 end
 
 describe "Main Pages" do

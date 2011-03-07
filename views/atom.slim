@@ -14,6 +14,7 @@ feed xmlns="http://www.w3.org/2005/Atom"
     entry
       title= h(post.title)
       content type='html'
+				= post.body
       updated= post.updated_at.xmlschema
       link href=url_for(:post, :slug=> post.slug)
       id=url_for(:post, :slug => post.slug)
