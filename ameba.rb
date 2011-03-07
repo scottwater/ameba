@@ -13,6 +13,10 @@ helpers do
   include Sinatra::UIHelpers
 end
 
+configure :development do 
+	Slim::Engine.set_default_options :pretty => true
+end
+
 before do
   @site = Site.new
   @robots = "index,follow"
