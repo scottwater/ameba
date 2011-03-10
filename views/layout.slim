@@ -49,9 +49,9 @@ html lang="en"
             
     script type="text/javascript" src="/js/code.js"
     
-    - if production?
-      script type="text/javascript"
-			 | var _gaq = _gaq || [];
+    - if development?
+			javascript:
+			  var _gaq = _gaq || [];
 			   _gaq.push(['_setAccount', 'UA-65729-10']);
 			   _gaq.push(['_trackPageview']);
 
