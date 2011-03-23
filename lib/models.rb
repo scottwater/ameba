@@ -78,6 +78,7 @@ class Post
   include MongoMapper::Document
   
   key :title, String, :required => true, :allow_blank => false
+	key :url, String 
   key :rawbody, String, :required => true, :allow_blank => false
   key :body, String, :required => true, :allow_blank => false
   key :slug, String, :required => true, :allow_blank => false, :unique => true, :index => true

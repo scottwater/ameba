@@ -2,10 +2,7 @@
   article
     header
       h1
-        == link_to h(post.title), path_for(:post, :slug => post.slug)
+        == link_to h(post.title), smart_path(post) 
     section.content
       == post.body
-    footer
-			' Published
-			time datetime=post.created_at.iso8601 pubdate=true
-				== kronic(post.created_at)
+    footer == smart_footer(post)

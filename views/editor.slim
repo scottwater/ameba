@@ -14,6 +14,9 @@ form action=editor_action_link(@post) method="post" id="post"
     label for='title' Title:
     input.text type="text" name="post[title]" value=@post.title id="title" tab="0" placeholder="enter a title" autofocus=true
 
+    label for='url' Url:
+    input.text type="text" name="post[url]" value=@post.url id="url" tab="0" placeholder="enter a url"
+
     label for='rawbody' Body:
     textarea.textarea name="post[rawbody]" id="rawbody" tab="1" placeholder="write something already"
      =@post.rawbody

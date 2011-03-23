@@ -49,6 +49,7 @@ post %r{/edit/(.+)} do |slug|
   post = Post.find_by_slug!(slug)
   post.title = params[:post][:title]
   post.rawbody = params[:post][:rawbody]
+	post.url = params[:post][:url]
   if post.save
     redirect path_for(:post, :slug => post.slug)
   else

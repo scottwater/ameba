@@ -1,7 +1,7 @@
 article
   header
     h1
-      == h @post.title
+      == smart_title(@post)
       - if logged_in?
         =="(#{n @post.views} Views #{link_to("Edit", path_for(:edit, :slug => @post.slug))})"
   section.content

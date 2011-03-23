@@ -57,11 +57,7 @@ describe "Feed Settings" do
 		
 		Post.create(:rawbody => 'A new post', :title => 'Hello World', :user => a_user)
 		visit '/atom'
-		#These are some crappy tests. Need to figure out how to properly test
-		#xml in my views. For now, these should stop me from doing a bonehead deploy
-		#and break my feed. :(
-		response_body.should contain "A new post"
-		response_body.should contain "Hello World"
+    response_body.should have_selector("entry content[type='html']", :content => "Hello World")
 	end
 end
 
@@ -84,7 +80,19 @@ describe "Main Pages" do
 		response_body.should contain "First post"
 
 	end
+
+  it "should find the full url on the index page" do
+    Post.create!(:rawbody => "First post", :title => "The First Post", :user => a_user, :url => 'http://scottw.com')
+    visit '/'
+    response_body.should have_selector("a[href='http://scottw.com']", :content => "The First Post") 
+  end
 	
+  it "should find the full url on the individual post page" do
+    p = Post.create!(:rawbody => "First post", :title => "The First Post", :user => a_user, :url => 'http://scottw.com')
+    visit path_for(:post, :slug => p.slug)
+    response_body.should have_selector("a[href='http://scottw.com']", :content => "The First Post") 
+  end
+
 	it "should find handle proper redirects for slugs" do
 
 		p = Post.create!(:rawbody => "First post in all of it's glory", :title => "The First Post", :user => a_user)
