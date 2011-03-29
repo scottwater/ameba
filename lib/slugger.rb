@@ -1,6 +1,6 @@
 class Slugger
   
-  STOP_WORDS = %w{a an and are as at be but by for if in into is it no of on or such that the their then there these they this to was will with}
+  STOP_WORDS = %w{a an and are as at be but by for if in into is it no of on or such that the their then there these they this to s was will with}
   RESERVED_WORDS =  %w{update edit feed rss create new tag login logout atom about archive}
   
   def initialize(text_to_slug, validate=true)
