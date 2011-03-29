@@ -12,7 +12,7 @@ feed xmlns="http://www.w3.org/2005/Atom"
 
   - @posts.each do |post|
     entry
-      title= h(post.title)
+      title= post.title
       content type='html'
 				= smart_atom_content(post) 
       updated= post.updated_at.xmlschema
