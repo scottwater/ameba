@@ -15,7 +15,12 @@ class Site
    
    attr_env_reader :title, :namespace => 'AMEBA_', :default => 'An Ameba Blog'
    attr_env_reader :subtitle, :namespace => 'AMEBA_', :default =>'You should change this value'
+   # attr_env_reader :timezone_offset, :namespace => 'AMEBA_', :default => 0
    attr_env_reader :feed, :namespace => 'AMEBA_'
+
+	 def timezone_offset
+		 ( ENV['AMEBA_TIMEZONE_OFFSET'] || '0').to_i
+	 end
   
 end
 
@@ -93,12 +98,18 @@ class Post
   scope :sorted, sort(:created_at.desc)
   scope :filtered, query.ignore(:rawbody)
   scope :light, query.only(:title, :slug, :created_at, :views)
+	scope :published, where(:created_at.lte => Time.current.ago(Site.new.timezone_offset.hours))
+	scope :notpublished, where(:created_at.gte => Time.current.ago(Site.new.timezone_offset.hours))
   
+	def when 
+		self.created_at.since(Site.new.timezone_offset.hours).localtime.strftime("%b %d, %Y at %l:%M %p") unless self.created_at.nil?
+	end
+
   def self.recent(page_size=10, page=0)
    page = page.to_i
    q = sorted.filtered.limit(page_size)
    q = q.skip(page_size * (page - 1)) if page > 1
-   q.all
+   q.published
   end
   
   def self.popular(page_size=10)
@@ -106,8 +117,12 @@ class Post
   end
   
   def self.archive()
-    sorted.light.all
+    sorted.light.published
   end
+
+	def self.queued()
+		light.notpublished.sort(:created_at.asc)
+	end
   
   def next()
     raise "cannot use next on a new post" if new?

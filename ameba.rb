@@ -6,6 +6,7 @@ require 'models'
 require 'routes'
 require 'uihelpers'
 require 'slim'
+autoload :Chronic, 'chronic'
 
 helpers do
   include Sinatra::Authorization
@@ -30,6 +31,7 @@ end
 post '/new' do
   login_required!
   post = Post.new params[:post]
+	post.created_at = date_from_form(params[:post][:when]) 
   post.user = current_user
   if post.save
     redirect path_for(:post, :slug => post.slug)
@@ -49,6 +51,7 @@ post %r{/edit/(.+)} do |slug|
   post = Post.find_by_slug!(slug)
   post.title = params[:post][:title]
   post.rawbody = params[:post][:rawbody]
+	post.created_at = date_from_form(params[:post][:when]) 
 	post.url = params[:post][:url]
   if post.save
     redirect path_for(:post, :slug => post.slug)
@@ -98,6 +101,14 @@ get '/archive' do
   slim :archive
 end
 
+get '/queue' do
+	login_required!
+	set_title "Queue"
+	@posts = Post.queued
+	@robots = "noindex,nofollow"
+	slim :queue
+end
+
 get %r{/(.+)} do |slug|
   @post = Post.find_by_slug(slug)
   if @post
@@ -131,4 +142,11 @@ def editor_form(post)
   @post = post
   set_title post.title.present? ? post.title : 'Write Something'
   slim :editor  
+end
+
+def date_from_form(date)
+	now = Time.current.ago(@site.timezone_offset)
+	date = Chronic.parse(date, :now => now)
+	date = now if date.nil?
+	date
 end

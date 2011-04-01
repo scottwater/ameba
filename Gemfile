@@ -12,6 +12,7 @@ gem 'i18n', '0.4.1'
 gem 'rack-flash', '0.1.1'
 gem 'rack-rewrite', '1.0.2'
 gem 'slim', '0.9.0'
+gem 'aaronh-chronic', :git => 'https://github.com/AaronH/chronic.git', :require => 'chronic'
 
 group :test do
   gem 'mocha', '~> 0.9.9'

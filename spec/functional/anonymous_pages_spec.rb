@@ -55,7 +55,7 @@ describe "Feed Settings" do
 		User.destroy_all
 		Post.destroy_all
 		
-		Post.create(:rawbody => 'A new post', :title => 'Hello World', :user => a_user)
+		Post.create(:rawbody => 'A new post', :title => 'Hello World', :user => a_user, :created_at => Time.current.ago(1.minute))
 		visit '/atom'
     response_body.should have_selector("entry content[type='html']", :content => "Hello World")
 	end
@@ -72,17 +72,23 @@ describe "Main Pages" do
 		visit '/'
 		response_body.should contain 'An Ameba Blog'
 	end
+
+  it "should not find a  post publishe in the future" do
+    Post.create!(:rawbody => "First Post", :title => "First Post", :user => a_user, :created_at => Time.current.since(1.day))
+    visit '/'
+    response.body.should_not contain "First Post"
+  end
 	
 	it "should be able to find a post on the home page" do
 		
-		Post.create!(:rawbody => "First post in all of it's glory", :title => "The First Post", :user => a_user)
+		Post.create!(:rawbody => "First post in all of it's glory", :title => "The First Post", :user => a_user, :created_at => Time.current.ago(1.minute))
 		visit '/'
 		response_body.should contain "First post"
 
 	end
 
   it "should find the full url on the index page" do
-    Post.create!(:rawbody => "First post", :title => "The First Post", :user => a_user, :url => 'http://scottw.com')
+    Post.create!(:rawbody => "First post", :title => "The First Post", :user => a_user, :url => 'http://scottw.com', :created_at => Time.current.ago(1.minute))
     visit '/'
     response_body.should have_selector("a[href='http://scottw.com']", :content => "The First Post") 
   end
@@ -95,7 +101,7 @@ describe "Main Pages" do
 
 	it "should find handle proper redirects for slugs" do
 
-		p = Post.create!(:rawbody => "First post in all of it's glory", :title => "The First Post", :user => a_user)
+		p = Post.create!(:rawbody => "First post in all of it's glory", :title => "The First Post", :user => a_user, :created_at => Time.current.ago(1.minute))
 		visit '/'
 		response_body.should contain "First post"
     visit path_for(:post, :slug => p.slug)
