@@ -18,7 +18,7 @@ form action=editor_action_link(@post) method="post" id="post"
     textarea.textarea name="post[rawbody]" id="rawbody" tab="1" placeholder="write something already"
      =@post.rawbody
 
-    label for='url' Url:
+    label for='url' Source:
     input.text type="text" name="post[url]" value=@post.url id="url" tab="0" placeholder="enter a url"
 
     label for='when' When:
