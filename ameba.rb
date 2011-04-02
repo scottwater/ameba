@@ -147,5 +147,5 @@ end
 
 def date_from_form(date)
 	date = 'now' if date.blank?
-	Chronic.parse(date).ago(@site.timezone_offset).utc
+	Chronic.parse(date).ago(@site.timezone_offset.hours).utc
 end
