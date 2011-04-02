@@ -21,6 +21,7 @@ end
 before do
   @site = Site.new
   @robots = "index,follow"
+	@queue_count = Post.notpublished.count if current_user
 end
 
 get '/new' do
@@ -145,8 +146,6 @@ def editor_form(post)
 end
 
 def date_from_form(date)
-	now = Time.current.ago(@site.timezone_offset)
-	date = Chronic.parse(date, :now => now)
-	date = now if date.nil?
-	date
+	date = 'now' if date.blank?
+	Chronic.parse(date).ago(@site.timezone_offset).utc
 end
