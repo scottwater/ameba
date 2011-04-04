@@ -58,8 +58,12 @@ module Sinatra
 		#probably needs to be in it's own helper
 
 		def last_updated(posts)
-			posts.max{|a,b| a.updated_at <=> b.updated_at}
+			posts.max{|a,b| greater_value(a.created_at, a.updated_at) <=> greater_value(b.created_at, b.updated_at)}
 		end	
+		
+		def greater_value(obj1, obj2)
+		  obj1 > obj2 ? obj1 : obj2
+		end
 
     
     def self.registered(app)
