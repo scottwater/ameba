@@ -98,8 +98,8 @@ class Post
   scope :sorted, sort(:created_at.desc)
   scope :filtered, query.ignore(:rawbody)
   scope :light, query.only(:title, :slug, :created_at, :views)
-	scope :published, where(:created_at.lte => Time.current)
-	scope :notpublished, where(:created_at.gte => Time.current)
+	scope :published, where(:created_at.lte => Time.current.utc)
+	scope :notpublished, where(:created_at.gte => Time.current.utc)
   
 	def when 
 		self.created_at.since(Site.new.timezone_offset.hours).localtime.strftime("%b %d, %Y at %l:%M %p") unless self.created_at.nil?
