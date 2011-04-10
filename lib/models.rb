@@ -98,12 +98,19 @@ class Post
   scope :sorted, sort(:created_at.desc)
   scope :filtered, query.ignore(:rawbody)
   scope :light, query.only(:title, :slug, :created_at, :views)
-	scope :published, where(:created_at.lte => Time.current.utc)
-	scope :notpublished, where(:created_at.gte => Time.current.utc)
   
 	def when 
 		self.created_at.since(Site.new.timezone_offset.hours).localtime.strftime("%b %d, %Y at %l:%M %p") unless self.created_at.nil?
 	end
+
+  def self.published
+    where(:created_at.lte => Time.current.utc)
+  end
+
+  def self.not_published
+    where(:created_at.gte => Time.current.utc)
+  end
+
 
   def self.recent(page_size=10, page=0)
    page = page.to_i
@@ -121,7 +128,7 @@ class Post
   end
 
 	def self.queued()
-		light.notpublished.sort(:created_at.asc)
+		light.not_published.sort(:created_at.asc)
 	end
   
   def next()

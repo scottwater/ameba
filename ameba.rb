@@ -21,7 +21,7 @@ end
 before do
   @site = Site.new
   @robots = "index,follow"
-	@queue_count = Post.notpublished.count if current_user
+	@queue_count = Post.not_published.count if current_user
 end
 
 get '/new' do
