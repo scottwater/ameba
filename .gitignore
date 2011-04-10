@@ -1,3 +1,5 @@
 .bundle
 /bin
 *.log
+.powenv
+/tmp
