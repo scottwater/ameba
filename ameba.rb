@@ -1,6 +1,7 @@
 $:.unshift File.expand_path(File.dirname(__FILE__) + '/lib')
 
 require 'sinatra'
+require "sinatra/reloader" if development?
 require 'authorization'
 require 'models'
 require 'routes'

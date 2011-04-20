@@ -14,6 +14,10 @@ gem 'rack-rewrite', '1.0.2'
 gem 'slim', '0.9.0'
 gem 'aaronh-chronic', :git => 'https://github.com/AaronH/chronic.git', :require => 'chronic'
 
+group :development do
+	gem 'sinatra-reloader'
+end
+
 group :test do
   gem 'mocha', '~> 0.9.9'
   gem "rspec", '1.3.0', :require => "spec"
