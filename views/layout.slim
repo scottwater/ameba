@@ -6,50 +6,44 @@ html lang="en"
     meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' 
     meta name='robots' content=(@robots)
     meta name='google-site-verification' content='cp4DJ22wBHgD7CU8Q8Qt6RzE-RBvt_Bs3P36V5sFVgI'
+    link rel="stylesheet" href="/css/reset.css" media="screen, projection"
     link rel="stylesheet" href="/css/style.css" media="screen, projection"
-    link rel="stylesheet" href="/css/syntax.css" media="screen, projection"
+    link rel="stylesheet" href="/css/app.css" media="screen, projection"
     link href=url_for_feed(@site.feed) type="application/atom+xml" rel="alternate" title=@site.title
     link rel="shortcut icon" href="/favicon.ico"
+    script type="text/javascript" src="http://use.typekit.com/qqx1qcd.js"
+    javascript:
+      try{Typekit.load();}catch(e){}
+
     /![if IE]
       script type="text/javascript" src="http://cachedcommons.org/cache/html5-enabled/1.0.0/javascripts/html5-enabled-min.js"
       
   body
-    header.siteheader
-      hgroup
-        h1
-          == link_to(@site.title, (path_for :home))
-        h2== @site.subtitle
+    #wrapper
+      nav
+        ul
+          li== link_to("About", path_for(:about))
+          li== link_to("Archive", path_for(:archive))
+          li== link_to("Feed", url_for_feed(@site.feed))
+          -if logged_in?
+            li== link_to("Queue (#{@queue_count})", path_for(:queue))
+            li== link_to("New Post", path_for(:new))
+            li== link_to("Sign Out", path_for(:logout))
+    
+      header#main
+        hgroup
+          h1
+            == link_to(@site.title, (path_for :home))
+          h2== @site.subtitle
 
-    section.container
-      section.wrapper
-        section.main
-          == yield
-        section.sidebar
-          .me
-            a href=path_for(:about)
-              img src="http://scottwstatic.appspot.com/images/scottw.jpg" alt="Picture of the very funny, handsome, smart, and talented Scott Watermasysk"
-          nav
-            ul
-              li== link_to("About", path_for(:about))
-              li== link_to("Archive", path_for(:archive))
-              li== link_to("Feed", url_for_feed(@site.feed))
-              -if logged_in?
-                li== link_to("Queue (#{@queue_count})", path_for(:queue))
-                li== link_to("New Post", path_for(:new))
-                li== link_to("Sign Out", path_for(:logout))
-          .twitter
-            a href="http://www.twitter.com/scottw"
-              img src="http://twitter-badges.s3.amazonaws.com/follow_me-c.png" alt="Follow scottw on Twitter"
-                
-
-                
-      footer
+      section#content
+        == yield
+                  
+      footer#footer
         p Please contact me at <a href="http://twitter.com/scottw">@ScottW</a> or <a href="mailto:scottwater+blog@gmail.com">ScottWater@gmail.com</a>
         p &copy; Scott Watermasysk &#8212; 2006-#{Time.now.year.to_s}
         p Powered by #{{link_to 'Sinatra', 'http://www.sinatrarb.com'}} and hosted on #{{link_to 'Heroku', 'http://heroku.com'}}
             
-    script type="text/javascript" src="/js/code.js"
-    
     - if production?
       javascript:
         var _gaq = _gaq || [];

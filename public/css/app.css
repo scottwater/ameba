@@ -1,0 +1,162 @@
+
+body { #444; background: #eee; }
+
+#wrapper { position:relative; overflow:hidden; width: 800px;padding: 40px 60px; border: 1px solid #ccc; margin: 40px auto 20px; background: #fff; -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.1); -moz-box-shadow: 0 0 15px rgba(0,0,0,0.1); box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+
+#content {
+	min-height: 600px;
+}
+
+h1 a {text-decoration: none;}
+
+/*#wrapper {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+*/
+
+header #main {
+	margin:0;
+	padding:0;
+}
+
+#main hgroup h1 {
+	margin-top:0;
+	padding-top:0;
+ }
+
+ #main hgroup h2 {
+  margin: 0;
+ }
+
+h2 { margin-top:1em;}
+
+a:hover, a:active { outline: none; }
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+blockquote, ul, ol {
+  margin-left:40px;
+  margin-right:40px;
+}
+
+blockquote {
+	padding-left:20px;
+}
+
+
+pre  {
+  padding:0;
+  margin:0;
+  background-color: lightgrey;
+}
+
+pre code {
+  margin: 0 0 0 40px;
+  padding: 5px 0;
+  display:block;
+}
+
+footer.post {
+	text-align:right;
+	clear:both;
+	font-size:.75em;
+}
+
+#footer
+{
+	text-align:center;
+}
+
+#footer p
+{
+	margin:0;
+}
+
+nav
+{
+	float:right;
+	position:absolute;
+	right:0;
+	top:0;
+	margin:0;
+	padding-right:10px;
+	padding-top:5px;
+}
+
+nav ul {margin:0; padding:0;}
+
+nav ul li
+{
+  display: inline-block;
+}
+
+nav ul li a
+{
+  display: block;
+  padding: 0 5px;
+}
+
+nav ul li:first-child a
+{
+  padding-left:0px;
+}
+
+ul.archive
+{
+    width: 100%;
+    margin:0;
+}
+
+ul.archive li time
+{
+    float: right;
+    font-size: 0.8em;
+	padding:0;
+	margin:0;
+}
+
+ul.archive li
+{
+    list-style-type: none;
+    border-bottom: 1px solid #F5F5F5;
+    margin-bottom: 5px;
+}
+
+ul.archive li a
+{
+    text-decoration: none;
+	font-size:1.25em;
+}
+
+
+#errors ul, #notification {color:red;}
+.ads {margin: 10px 0}
+.twitter {margin: 10px 0;}
+#post #title, #post #url, #post #when {font-size:16px; width:90%; line-height:20px;}
+
+#post textarea.textarea { font-size: 16px; line-height: 20px; max-height: 500px; height: 250px; width:90%; }
+
+#user #email, #user #password {font-size:16px; width:50%; line-height:20px;}
+
+input[type="text"]:focus, textarea:focus, input:focus {
+    background-color:#FFFFCC;
+    color:#000000;
+}
+
+input[type="submit"]
+{
+    width:100px;
+    font-size:16px;
+	padding: 10px;
+}
+
+label {display:block;}
+
+.main header h1 a[href^="http:"]:after 
+{
+	color:  #FF5E99;
+ 	padding-left:10px;	
+	content:"\21FE"; 
+}

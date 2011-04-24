@@ -6,7 +6,7 @@ article
         =="(#{n @post.views} Views #{link_to("Edit", path_for(:edit, :slug => @post.slug))})"
   section.content
     == @post.body
-  footer
+  footer.post
     ' Published
     time datetime=@post.created_at.iso8601 pubdate=true
       == kronic(@post.created_at)

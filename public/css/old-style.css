@@ -86,6 +86,7 @@ html {
 }
 
  
+:q
 /* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
 a:hover, a:active { outline: none; }
 
