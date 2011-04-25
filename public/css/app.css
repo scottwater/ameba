@@ -74,7 +74,7 @@ footer.post {
 	margin:0;
 }
 
-nav
+#nav
 {
 	float:right;
 	position:absolute;
@@ -85,20 +85,20 @@ nav
 	padding-top:5px;
 }
 
-nav ul {margin:0; padding:0;}
+#nav ul {margin:0; padding:0;}
 
-nav ul li
+#nav ul li
 {
-  display: inline-block;
+  display: inline;
+  list-style-type: none;
 }
 
-nav ul li a
+#nav ul li a
 {
-  display: block;
   padding: 0 5px;
 }
 
-nav ul li:first-child a
+#nav ul li:first-child a
 {
   padding-left:0px;
 }
