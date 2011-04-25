@@ -47,6 +47,12 @@ html lang="en"
         p Please contact me at <a href="http://twitter.com/scottw">@ScottW</a> or <a href="mailto:scottwater+blog@gmail.com">ScottWater@gmail.com</a>
         p &copy; Scott Watermasysk &#8212; 2006-#{Time.now.year.to_s}
         p Powered by #{{link_to 'Sinatra', 'http://www.sinatrarb.com'}} and hosted on #{{link_to 'Heroku', 'http://heroku.com'}}
+        
+    - if production?
+      script type="text/javascript" src="//www.hellobar.com/hellobar.js"
+      javascript:
+        new HelloBar(6231,3956);
+    
             
     - if production?
       javascript:
