@@ -21,6 +21,11 @@ describe Post do
     it 'should save a post' do
       @post.title.should == "Simple Post"
     end
+    
+    it 'should remove the line break after a <pre><code>' do
+      r = Regexp.new("<pre><code>This")
+      @post.body.should match(r)
+    end
 
     it 'should catch a duplicate post' do
       post =  Post.create! :rawbody => @content[:content], :title => @content[:title], :user => a_user

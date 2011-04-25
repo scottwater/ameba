@@ -161,7 +161,15 @@ class Post
   
   def set_standard_values(&blog_validation)
     self.slug = Slugger.new(self.slug || self.title, !(!!self.slug)).to_slug(&blog_validation) if self.new?
-    self.body = RedCloth.new(self.rawbody).to_html 
+    temp_body = clean_up_pre_code_blocks(self.rawbody)
+    self.body = RedCloth.new(temp_body).to_html 
+  end
+  
+  # This is not ideal, but it makes it easier to read code in the editor
+  # and formats it much better for end users
+  def clean_up_pre_code_blocks(text)
+    r = Regexp.new('<pre><code( class=".{1,6}")?>\r?\n')
+    text.gsub(r, '<pre><code>')
   end
   
 end

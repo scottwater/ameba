@@ -4,3 +4,7 @@ tags: [one, two]
 ---
 
 This is a simple post body.
+
+<pre><code>
+This is a code block
+</code></pre>

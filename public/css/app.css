@@ -47,13 +47,13 @@ blockquote {
 
 
 pre  {
-  padding:0;
-  margin:0;
   background-color: lightgrey;
+  margin-left:0;
+  padding-left:0;
 }
 
 pre code {
-  margin: 0 0 0 40px;
+  margin: 0 0 0 20px;
   padding: 5px 0;
   display:block;
 }
