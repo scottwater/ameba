@@ -13,6 +13,7 @@ gem 'rack-flash', '0.1.1'
 gem 'rack-rewrite', '1.0.2'
 gem 'slim', '0.9.0'
 gem 'aaronh-chronic', :git => 'https://github.com/AaronH/chronic.git', :require => 'chronic'
+gem 'newrelic_rpm'
 
 group :development do
 	gem 'sinatra-reloader'

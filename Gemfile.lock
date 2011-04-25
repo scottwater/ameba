@@ -25,6 +25,7 @@ GEM
       plucky (~> 0.3.6)
     monkey-lib (0.5.4)
       backports
+    newrelic_rpm (2.14.1)
     nokogiri (1.4.4)
     plucky (0.3.7)
       mongo (~> 1.1)
@@ -72,6 +73,7 @@ DEPENDENCIES
   mocha (~> 0.9.9)
   mongo (= 1.1.1)
   mongo_mapper (= 0.8.6)
+  newrelic_rpm
   rack-flash (= 0.1.1)
   rack-rewrite (= 1.0.2)
   rack-test (= 0.5.7)

@@ -8,9 +8,7 @@ $: << '.'
 require 'ameba'
 
 configure :production do
-    ENV['APP_ROOT'] ||= File.dirname(__FILE__)
-    $:.unshift "#{ENV['APP_ROOT']}/vendor/plugins/newrelic_rpm/lib"
-    require 'newrelic_rpm'
+  require 'newrelic_rpm'
 end
 
 DEFAULT_SECRET_KEY = 'not_yet_set' unless defined?(DEFAULT_SECRET_KEY)
