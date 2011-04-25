@@ -111,7 +111,9 @@ ul.archive
 
 ul.archive li time
 {
-    float: right;
+	position: absolute;
+	bottom:0;
+	right:0;
     font-size: 0.8em;
 	padding:0;
 	margin:0;
@@ -119,6 +121,7 @@ ul.archive li time
 
 ul.archive li
 {
+	position: relative;
     list-style-type: none;
     border-bottom: 1px solid #F5F5F5;
     margin-bottom: 5px;

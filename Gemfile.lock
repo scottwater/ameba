@@ -7,6 +7,10 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     RedCloth (4.2.3)
     activesupport (3.0.1)
     backports (2.1.0)
@@ -27,6 +31,7 @@ GEM
       backports
     newrelic_rpm (2.14.1)
     nokogiri (1.4.4)
+    open4 (1.0.1)
     plucky (0.3.7)
       mongo (~> 1.1)
     rack (1.2.1)
@@ -58,6 +63,8 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -82,3 +89,4 @@ DEPENDENCIES
   sinatra-reloader
   slim (= 0.9.0)
   webrat (= 0.7.3)
+  yui-compressor

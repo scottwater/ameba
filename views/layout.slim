@@ -6,9 +6,12 @@ html lang="en"
     meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' 
     meta name='robots' content=(@robots)
     meta name='google-site-verification' content='cp4DJ22wBHgD7CU8Q8Qt6RzE-RBvt_Bs3P36V5sFVgI'
-    link rel="stylesheet" href="/css/reset.css" media="screen, projection"
-    link rel="stylesheet" href="/css/style.css" media="screen, projection"
-    link rel="stylesheet" href="/css/app.css" media="screen, projection"
+    - if production? 
+      link rel="stylesheet" href="/css/style.min.css" media="screen, projection"
+    - else
+      link rel="stylesheet" href="/css/reset.css" media="screen, projection"
+      link rel="stylesheet" href="/css/style.css" media="screen, projection"
+      link rel="stylesheet" href="/css/app.css" media="screen, projection"
     link href=url_for_feed(@site.feed) type="application/atom+xml" rel="alternate" title=@site.title
     link rel="shortcut icon" href="/favicon.ico"
     script type="text/javascript" src="http://use.typekit.com/qqx1qcd.js"

@@ -17,6 +17,7 @@ gem 'newrelic_rpm'
 
 group :development do
 	gem 'sinatra-reloader'
+	gem 'yui-compressor'	
 end
 
 group :test do

@@ -3,6 +3,26 @@ require 'rake'
 require "spec"
 require 'spec/rake/spectask'
 
+desc "Minimizes the css to a single compressed file"
+task :compress do
+	require 'yui/compressor'
+	
+	compressor = YUI::CssCompressor.new
+	content = []
+	%w{reset style app}.each do |css|
+			File.open("public/css/#{css}.css", "r") do |f|
+				f.each_line do |line|
+					content << line
+				end	
+			end
+	end
+
+	compressed =  compressor.compress(content.join("\n"))
+	File.open("public/css/style.min.css", "w") do |f|
+		f.write(compressed)
+	end
+end
+
 namespace :spec do
   
   desc "Run all specs (requires a live database)"
