@@ -9,13 +9,6 @@ body { #444; background: #eee; }
 
 h1 a {text-decoration: none;}
 
-/*#wrapper {
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
- }
-*/
-
 header #main {
 	margin:0;
 	padding:0;
@@ -47,7 +40,8 @@ blockquote {
 
 
 pre  {
-  background-color: lightgrey;
+  background-color: #F0F0F0;
+	border: 1px solid #CCCBBA;
   margin-left:0;
   padding-left:0;
 }
