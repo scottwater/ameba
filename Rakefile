@@ -9,7 +9,7 @@ task :compress do
 	
 	compressor = YUI::CssCompressor.new
 	content = []
-	%w{reset style app}.each do |css|
+	['reset', 'taf-kickoff-l',  'app'].each do |css|
 			File.open("public/css/#{css}.css", "r") do |f|
 				f.each_line do |line|
 					content << line
