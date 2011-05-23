@@ -69,7 +69,7 @@ end
 get '/login' do
 	set_title = 'Log In'
   @user = User.new
-  slim :login
+  v :login
 end
 
 post '/login' do
@@ -79,7 +79,7 @@ post '/login' do
     redirect redirect_to
   else
     flash[:notice] = "Invalid email/password combination"
-    slim :login
+    v :login
   end
 end
 
@@ -92,61 +92,63 @@ get '/atom' do
 end
 
 get '/about' do
-  set_title "About"
-  textile :about, :layout_engine => :slim
+  v :about
 end
 
 get '/archive' do
-  set_title "Archive"
   @posts = Post.archive
   @robots = "noindex,follow"
-  slim :archive
+  v :archive
 end
 
 get '/queue' do
 	login_required!
-	set_title "Queue"
 	@posts = Post.queued
 	@robots = "noindex,nofollow"
-	slim :queue
+	v :queue
 end
 
 get %r{/(.+)} do |slug|
   @post = Post.find_by_slug(slug)
   if @post
     @post.increment_views unless logged_in?
-    set_title @post.title
-    slim :post
+    v :post
   else
     404
   end
 end
 
 get '/' do
-  set_title
   @posts = Post.recent(10, params[:page] || 1)
-  slim :index
+  v :index
 end
 
 not_found do
-  set_title "You broke my site!"
   @posts = Post.popular
-  slim :'404'
+  v :'404'
 end
 
 def set_title (text=nil)
   @title = text ?  "#{text} : #{@site.title}" : @site.title
+  pjax? ? "<title>#{@title}</title>" : ''
 end
 
 private
 
 def editor_form(post)
   @post = post
-  set_title post.title.present? ? post.title : 'Write Something'
-  slim :editor  
+  v :editor  
 end
 
 def date_from_form(date)
 	date = 'now' if date.blank?
 	Chronic.parse(date).ago(@site.timezone_offset.hours).utc
+end
+
+def pjax?
+  env['HTTP_X_PJAX']
+end
+
+def v(name)
+  slim name, :layout => !pjax?
 end

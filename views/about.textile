@@ -1,9 +1,3 @@
-<article>
-<header>
-h1. About Scott Watermasysk
-</header>
-<section class="content">
-
 Hello! Thanks for stopping by.
 
 This is the personal site of Scott Watermasysk.
@@ -30,6 +24,3 @@ Want more? Have a question?
 # "Picture poster":http://crinket.com
 
 Want this site's code? See the "Ameba repository":http://github.com/scottwater/ameba
-
-</section>
-</article>

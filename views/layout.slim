@@ -14,9 +14,14 @@ html lang="en"
       link rel="stylesheet" href="/css/app.css" media="screen, projection"
     link href=url_for_feed(@site.feed) type="application/atom+xml" rel="alternate" title=@site.title
     link rel="shortcut icon" href="/favicon.ico"
+    script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"
+    script type="text/javascript" src="/js/jquery.pjax.js"
     script type="text/javascript" src="http://use.typekit.com/qqx1qcd.js"
     javascript:
       try{Typekit.load();}catch(e){}
+      $(document).ready(function() {
+        $('a').pjax('#content');
+      });
 
     |<!--[if lt IE 9]>
     |<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

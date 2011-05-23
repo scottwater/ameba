@@ -168,7 +168,7 @@ class Post
   # This is not ideal, but it makes it easier to read code in the editor
   # and formats it much better for end users
   def clean_up_pre_code_blocks(text)
-    r = Regexp.new('<pre><code( class=".{1,6}")?>\r?\n')
+    r = Regexp.new('<pre><code( class\s?=\s?".{1,10}")?>\r?\n')
     text.gsub(r, '<pre><code>')
   end
   

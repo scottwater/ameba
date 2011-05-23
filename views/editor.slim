@@ -1,3 +1,4 @@
+== set_title @post.title.present? ? @post.title : 'Write Something'
 article
   header
     h1 Feel inspired & write something
@@ -27,7 +28,6 @@ form action=editor_action_link(@post) method="post" id="post"
   fieldset
     input.submit type="submit" id="post-button" value=editor_button_text(@post) tab="2"
     
-script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
 script type="text/javascript" src="http://cachedcommons.org/cache/jquery-elastic-textarea/1.6.4/javascripts/jquery-elastic-textarea-min.js"
 script type="text/javascript" src="/js/incrementable.js"
 
