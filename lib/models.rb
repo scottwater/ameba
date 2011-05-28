@@ -1,7 +1,7 @@
 require 'mongodb'
 autoload :Slugger, 'slugger'
 autoload :RedCloth, 'redcloth'
-
+autoload :Redcarpet, 'redcarpet'
 
 #keeping Site simple and only supporting values which are used
 #in more than one location. Sidebar and About will simply be set in
@@ -89,6 +89,7 @@ class Post
   key :slug, String, :required => true, :allow_blank => false, :unique => true, :index => true
   key :user_id, ObjectId, :required => true
   key :views, Integer, :default => 0
+  key :format, String, :default => 'textile'
   timestamps!
   belongs_to :user
   
@@ -162,7 +163,11 @@ class Post
   def set_standard_values(&blog_validation)
     self.slug = Slugger.new(self.slug || self.title, !(!!self.slug)).to_slug(&blog_validation) if self.new?
     temp_body = clean_up_pre_code_blocks(self.rawbody)
-    self.body = RedCloth.new(temp_body).to_html 
+    if self.format == 'markdown'
+      self.body = Redcarpet.new(temp_body, :autolink, :hard_wrap, :smart, :tables).to_html
+    else
+      self.body = RedCloth.new(temp_body).to_html 
+    end
   end
   
   # This is not ideal, but it makes it easier to read code in the editor

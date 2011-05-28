@@ -4,7 +4,7 @@ article
     h1
       == smart_title(@post)
       - if logged_in?
-        =="(#{n @post.views} Views #{link_to("Edit", path_for(:edit, :slug => @post.slug))})"
+        =="(#{n @post.views} Views #{link_to("Edit", path_for(:edit, :slug => @post.slug), :class => 'nopjax')})"
   section.content
     == @post.body
   footer.post

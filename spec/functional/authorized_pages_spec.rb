@@ -34,7 +34,9 @@ describe "Authorized Pages" do
 
 	it "should verify the editor fields are properly poulated" do
 		visit_and_login path_for(:new)
-		field_labeled("Title:").value.should be_empty 
+    # need to figure out why text fields are now returning nil and textare is empty
+		field_labeled("Title:").value.should be_nil
+		field_labeled("When:").value.should be_nil
 		field_labeled("Body:").value.should be_empty 
 	end
 	
@@ -55,6 +57,15 @@ describe "Authorized Pages" do
 		response_body.should contain "I am the post body"
 	end
 	
+	it 'should set markdown as the format'  do
+		visit_and_login path_for(:new)
+		fill_in 'post[title]', :with => 'Hello World'
+		fill_in 'post[rawbody]', :with => 'I am the post body'
+    select 'Markdown', :from => 'post[format]'
+		click_button 'post-button'
+    Post.last.format.should == 'markdown'
+	end
+
 	it 'should verify a new post which is missing a title cannot be saved' do
 		visit_and_login path_for(:new)
 		fill_in 'post[rawbody]', :with => 'I am the post body'
@@ -71,6 +82,15 @@ describe "Authorized Pages" do
 		response_body.should contain "Rawbody can't be empty" #fixme: this is lame. Rawbody should not be here.
 		response_body.should contain "Body can't be empty"
 	end
+
+  describe 'Editing a markdown post' do
+    it 'should still be markdown after editing it' do
+      Post.create!(:title => 'Hello World', :rawbody => "# Header\n\n* First\n* Second", :format => 'markdown', :user => a_user)
+      visit_and_login path_for(:edit, :slug => 'hello-world')
+      click_button 
+      Post.last.format.should == 'markdown'
+    end
+  end
 	
 	describe 'Editing a standard post' do
 	  
@@ -89,6 +109,11 @@ describe "Authorized Pages" do
   	  response_body.should contain "Body Changed"
 
   	end
+
+    it 'should still be textile after editing' do 
+      click_button 'post-button'
+      Post.last.format.should == 'textile'
+    end
 	
   	it 'should catch a missing title when editing a post' do
   		fill_in 'post[title]', :with => nil

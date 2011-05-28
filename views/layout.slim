@@ -20,7 +20,7 @@ html lang="en"
     javascript:
       try{Typekit.load();}catch(e){}
       $(document).ready(function() {
-        $('a').pjax('#content');
+        $('a:not(a.nopjax)').pjax('#content');
       });
 
     |<!--[if lt IE 9]>
@@ -33,11 +33,11 @@ html lang="en"
         ul
           li== link_to("About", path_for(:about))
           li== link_to("Archive", path_for(:archive))
-          li== link_to("Feed", url_for_feed(@site.feed))
+          li== link_to("Feed", url_for_feed(@site.feed), :class => 'nopjax')
           -if logged_in?
-            li== link_to("Queue (#{@queue_count})", path_for(:queue))
-            li== link_to("New Post", path_for(:new))
-            li== link_to("Sign Out", path_for(:logout))
+            li== link_to("Queue (#{@queue_count})", path_for(:queue), :class => 'nopjax')
+            li== link_to("New Post", path_for(:new), :class => 'nopjax')
+            li== link_to("Sign Out", path_for(:logout), :class => 'nopjax')
     
       header#main
         hgroup
