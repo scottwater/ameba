@@ -8,7 +8,7 @@ First and foremost, I am a family man. I am married to an extraordinary woman an
 
 In February 2011 I decided it was time to make a bigger mark on the world and left a comfortable job to start building my own empire of awesomeness. My first product is called "KickoffLabs":http://kickofflabs.com. You should give it a try. It will change your life forever.
 
-If you want to know more about my career, please see my "LinkedIn profile":http://www.linkedin.com/in/scottwater
+If you want to know more about my career, please see my <a href="http://www.linkedin.com/in/scottwater" rel="me">LinkedIn Profile</a>.
 
 On technology...I spent 10+ years building lots of stuff on .NET. For many people, this is still a viable platform, but for me, it no longer fits and it was time to move on. I am now spending most of my development time writing Ruby code (rails and sinatra), but time will ultimately tell. For now I find it to be a breath of fresh air and I really enjoy it. 
 
@@ -18,9 +18,9 @@ On life...I like things simple. I am a minimalist at heart, but still need to wo
 
 Want more? Have a question? 
 
-# Email me at "ScottWater@gmail.com":mailto:scottwater@gmail.com
-# Twitter'er "@ScottW":http://twitter.com/scottw
-# "Github":http://github.com/scottwater
-# "Picture poster":http://crinket.com
+# Email me at <a href="mailto:scottwater@gmail.com" rel="me">ScottWater@gmail.com</a> 
+# Twitter'er <a href="http:/twitter.com/scottw" rel="me">ScottW</a> 
+# <a href="http://github.com/scottwater" rel="me">Github</a>
+# <a href="http://crinket.com" rel="me">Picture Poster</a>
 
 Want this site's code? See the "Ameba repository":http://github.com/scottwater/ameba

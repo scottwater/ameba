@@ -8,6 +8,6 @@ article
   section.content
     == @post.body
   footer.post
-    ' Published
+    ' Published by <a ref="author" href="/about">Scott Watermasysk</a>
     time datetime=@post.created_at.iso8601 pubdate=true
       == kronic(@post.created_at)
